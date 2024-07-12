@@ -1,16 +1,27 @@
-function createMenu() {
+function createMenu(items, title = 'Menu') {
     const menu = document.createElement('div');
+    const menuContainer = document.createElement('div');
+    const menuTitle = document.createElement('h2');
+    
+    menuTitle.textContent = title;
+    menuContainer.classList.add('menu-container');
+
+    menu.appendChild(menuTitle);
+    menu.appendChild(menuContainer);
+
+    // const menuTitle = document.createElement('h2');
+    // menuTitle.textContent = title;
+    // menu.appendChild(menuTitle);
     menu.classList.add('menu');
 
-    menu.appendChild(createItem('Margherita', 'Tomato sauce, mozzarella, and basil', '$10'));
-    menu.appendChild(createItem('Peperoni', 'Tomato sauce, mozzarella, and pepperoni', '$12'));
-    menu.appendChild(createItem('Hawaiian', 'Tomato sauce, mozzarella, ham, and pineapple', '$14'));
-    menu.appendChild(createItem('Meat Lovers', 'Tomato sauce, mozzarella, pepperoni, sausage, and bacon', '$16'));
+    for (let i = 0; i < items.length; i++) {
+        menuContainer.appendChild(createItemElement(items[i].name, items[i].description, items[i].price));
+    }
 
     return menu;
 }
 
-function createItem(name, description, price) {
+function createItemElement(name, description, price) {
     const item = document.createElement('div');
     item.classList.add('item');
 
@@ -32,7 +43,15 @@ function createItem(name, description, price) {
 function loadMenu() {
     const main = document.getElementById('main');
     main.textContent = '';
-    main.appendChild(createMenu());
+    main.appendChild(createMenu(
+        [
+            { name: 'Margherita', description: 'Tomato sauce, mozzarella, and basil', price: '$10' },
+            { name: 'Peperoni', description: 'Tomato sauce, mozzarella, and pepperoni', price: '$12' },
+            { name: 'Hawaiian', description: 'Tomato sauce, mozzarella, ham, and pineapple', price: '$14' },
+            { name: 'Meat Lovers', description: 'Tomato sauce, mozzarella, pepperoni, sausage, and bacon', price: '$16' },
+        ],
+        'Gourmet Pizzas'
+    ));
     console.log('Menu loaded');
 }
 

@@ -6,14 +6,15 @@ import loadContact from './contact';
 
 function createHeader() {
     const header = document.createElement('header');
+    const titleContainer = document.createElement('div');
+    const title = document.createElement('h1');
+
     header.classList.add('header');
+    titleContainer.classList.add('title-container');
+    title.textContent = 'Papa\'s Pizza';
 
-    const restaurantTitle = document.createElement('h1');
-
-    restaurantTitle.classList.add('title');
-    restaurantTitle.textContent = 'Papa\'s Pizza';
-
-    header.appendChild(restaurantTitle);
+    titleContainer.appendChild(title);
+    header.appendChild(titleContainer);
     header.appendChild(createNav());
 
     return header;
