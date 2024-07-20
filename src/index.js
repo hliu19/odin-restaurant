@@ -11,7 +11,7 @@ function createHeader() {
 
     header.classList.add('header');
     titleContainer.classList.add('title-container');
-    title.textContent = 'Papa\'s Pizza';
+    title.textContent = 'PAPA\'S PIZZA';
 
     titleContainer.appendChild(title);
     header.appendChild(titleContainer);
@@ -22,35 +22,35 @@ function createHeader() {
 
 function createNav() {
     const nav = document.createElement('nav');
-    const home_button = document.createElement('button');
-    const menu_button = document.createElement('button');
-    const contact_button = document.createElement('button');
+    const home = document.createElement('a');
+    const menu = document.createElement('a');
+    const contact = document.createElement('a');
 
-    home_button.classList.add("nav-button");
-    home_button.addEventListener('click', () => {
-        setActivePage(home_button);
+    home.classList.add("nav-link");
+    home.addEventListener('click', () => {
+        setActivePage(home);
         loadHome();
     })
 
-    menu_button.classList.add("nav-button");
-    menu_button.addEventListener('click', () => {
-        setActivePage(menu_button);
+    menu.classList.add("nav-link");
+    menu.addEventListener('click', () => {
+        setActivePage(menu);
         loadMenu();
     })
 
-    contact_button.classList.add("nav-button");
-    contact_button.addEventListener('click', () => {
-        setActivePage(contact_button);
+    contact.classList.add("nav-link");
+    contact.addEventListener('click', () => {
+        setActivePage(contact);
         loadContact();
     })
 
-    home_button.textContent = 'Home';
-    menu_button.textContent = 'Menu';
-    contact_button.textContent = 'Contact';
+    home.textContent = 'HOME';
+    menu.textContent = 'MENU';
+    contact.textContent = 'CONTACT';
 
-    nav.appendChild(home_button);
-    nav.appendChild(menu_button);
-    nav.appendChild(contact_button);
+    nav.appendChild(home);
+    nav.appendChild(menu);
+    nav.appendChild(contact);
 
     return nav;
 }
@@ -77,15 +77,15 @@ function init() {
     content.appendChild(createFooter());
 
     loadHome();
-    setActivePage(document.querySelector('.nav-button'));
+    setActivePage(document.querySelector('.nav-link'));
 }
 
-function setActivePage(button) {
-    const buttons = document.querySelectorAll('.nav-button');
-    buttons.forEach((button) => {
-        button.classList.remove('active');
+function setActivePage(link) {
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach((link) => {
+        link.classList.remove('active');
     });
-    button.classList.add('active');
+    link.classList.add('active');
 }
 
 init();

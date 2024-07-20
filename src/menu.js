@@ -8,10 +8,6 @@ function createMenu(items, title = 'Menu') {
 
     menu.appendChild(menuTitle);
     menu.appendChild(menuContainer);
-
-    // const menuTitle = document.createElement('h2');
-    // menuTitle.textContent = title;
-    // menu.appendChild(menuTitle);
     menu.classList.add('menu');
 
     for (let i = 0; i < items.length; i++) {
@@ -43,6 +39,7 @@ function createItemElement(name, description, price) {
 function loadMenu() {
     const main = document.getElementById('main');
     main.textContent = '';
+
     main.appendChild(createMenu(
         [
             { name: 'Margherita', description: 'Tomato sauce, mozzarella, and basil', price: '$10' },
@@ -52,6 +49,16 @@ function loadMenu() {
         ],
         'Gourmet Pizzas'
     ));
+
+    main.appendChild(createMenu(
+        [
+            { name: 'Sphagetti', description: 'Tomato sauce, mozzarella, and spinach', price: '$8' },
+            { name: 'Carbonara', description: 'Tomato sauce, mozzarella, and eggs', price: '$10' },
+            { name: 'Quattro Formaggi', description: 'Tomato sauce, mozzarella, and cheese', price: '$12' },
+        ],
+        'Pastas'
+    ))
+
     console.log('Menu loaded');
 }
 
