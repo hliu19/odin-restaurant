@@ -1,7 +1,7 @@
 function createMenu(items, title = 'Menu') {
     const menu = document.createElement('div');
     const menuContainer = document.createElement('div');
-    const menuTitle = document.createElement('h2');
+    const menuTitle = document.createElement('h1');
     
     menuTitle.textContent = title;
     menuContainer.classList.add('menu-container');
@@ -23,15 +23,19 @@ function createItemElement(name, description, price) {
 
     const itemName = document.createElement('h3');
     itemName.textContent = name;
+    itemName.classList.add('item-name');
     item.appendChild(itemName);
 
     const itemDesc = document.createElement('p');
     itemDesc.textContent = description;
+    itemDesc.classList.add('item-description');
     item.appendChild(itemDesc);
 
     const itemPrice = document.createElement('p');
     itemPrice.textContent = price;
+    itemPrice.classList.add('item-price');
     item.appendChild(itemPrice);
+
 
     return item;
 }
@@ -42,12 +46,12 @@ function loadMenu() {
 
     main.appendChild(createMenu(
         [
-            { name: 'Margherita', description: 'Tomato sauce, mozzarella, and basil', price: '$10' },
+            { name: 'Margherita', description: 'Tomato sauce, mozzarella, and basil. Cooked in a pizza oven. Finished with Parmesan cheese. You can even add some basil on it if you want.', price: '$10' },
             { name: 'Peperoni', description: 'Tomato sauce, mozzarella, and pepperoni', price: '$12' },
             { name: 'Hawaiian', description: 'Tomato sauce, mozzarella, ham, and pineapple', price: '$14' },
             { name: 'Meat Lovers', description: 'Tomato sauce, mozzarella, pepperoni, sausage, and bacon', price: '$16' },
         ],
-        'Gourmet Pizzas'
+        'PIZZA'
     ));
 
     main.appendChild(createMenu(
@@ -56,7 +60,7 @@ function loadMenu() {
             { name: 'Carbonara', description: 'Tomato sauce, mozzarella, and eggs', price: '$10' },
             { name: 'Quattro Formaggi', description: 'Tomato sauce, mozzarella, and cheese', price: '$12' },
         ],
-        'Pastas'
+        'PASTA'
     ))
 
     console.log('Menu loaded');
